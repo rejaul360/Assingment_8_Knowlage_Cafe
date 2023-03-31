@@ -4,8 +4,8 @@ import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'
 
 
 const Bookmark = (props) => {
-    const {img, title, name,author,time, } = props.bookmark;
-    const {handleWathTime} = props.handleWathTime;
+    const {img, title, name,author,time} = props.bookmark;
+    const {handleWathTime} = props;
     return (
         <div>
 
@@ -18,13 +18,13 @@ const Bookmark = (props) => {
                                 <img src={author} alt="author" />
                             </div>
                             <div className='author_name'>
-                                <p className='name'>{name}</p>
+                                <p className='name'> <small> {name} min</small> </p>
                                 <p className='date_area'>Mar 14(4 Days ago)</p>
                             </div>
                         </div>
                         <div>
                             <small>{time}</small>
-                            <i className='ms-4' > <FontAwesomeIcon onClick={handleWathTime} icon={faBookBookmark} /></i>
+                            <i className='ms-4' > <FontAwesomeIcon onClick={()=> handleWathTime(time)} icon={faBookBookmark} /></i>
                         </div>
                     </div>
                     <div className='bottom_container'>

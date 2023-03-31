@@ -3,11 +3,23 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './Component/Navbar/Navbar';
 import Home from './Component/Home/Home';
 import SideCart from './Component/SideCart/SideCart';
+import { useState } from 'react';
 
 function App() {
-  const handleWathTime = () => {
-    console.log('okk brow namaj aa jao');
+  const [watchTime, setWatchTime] = useState("")
+
+  const handleWathTime = (time) => {
+   const previousTime =  JSON.parse(localStorage.getItem("watchTime"))
+   if(previousTime){
+    const sum = previousTime +  time;
+    localStorage.setItem("watchTime" , sum);
+    setWatchTime(sum)
+  }else{
+    localStorage.setItem("watchTime" , time);
+    setWatchTime(time)
   }
+  }
+  
   return (
     <div className="App">
      <div>
@@ -20,7 +32,9 @@ function App() {
           ></Home>
         </div>
         <div className='col-md-4 '>
-           <SideCart></SideCart>
+           <SideCart 
+           watchTime = {watchTime}
+           ></SideCart>
         </div>
      </div>
      
