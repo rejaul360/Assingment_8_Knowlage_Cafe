@@ -1,4 +1,5 @@
 import React from 'react';
+import './Bookmark.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'
 import {  ToastContainer,toast } from 'react-toastify';
