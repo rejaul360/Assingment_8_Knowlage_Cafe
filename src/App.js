@@ -4,40 +4,42 @@ import Navbar from './Component/Navbar/Navbar';
 import Home from './Component/Home/Home';
 import SideCart from './Component/SideCart/SideCart';
 import { useState } from 'react';
+import Blog from './Component/Blog/Blog';
 
 function App() {
   const [watchTime, setWatchTime] = useState("")
 
   const handleWathTime = (time) => {
-   const previousTime =  JSON.parse(localStorage.getItem("watchTime"))
-   if(previousTime){
-    const sum = previousTime +  time;
-    localStorage.setItem("watchTime" , sum);
-    setWatchTime(sum)
-  }else{
-    localStorage.setItem("watchTime" , time);
-    setWatchTime(time)
+    const previousTime = JSON.parse(localStorage.getItem("watchTime"))
+    if (previousTime) {
+      const sum = previousTime + time;
+      localStorage.setItem("watchTime", sum);
+      setWatchTime(sum)
+    } else {
+      localStorage.setItem("watchTime", time);
+      setWatchTime(time)
+    }
   }
-  }
-  
+
   return (
     <div className="App">
-     <div>
-      <Navbar></Navbar>
-     </div>
-     <div className='main row'>
+      <div>
+        <Navbar></Navbar>
+      </div>
+      <div className='main row'>
         <div className='col-md-8'>
-          <Home 
-          handleWathTime= {handleWathTime}
+          <Home
+            handleWathTime={handleWathTime}
           ></Home>
         </div>
         <div className='col-md-4 '>
-           <SideCart 
-           watchTime = {watchTime}
-           ></SideCart>
+          <SideCart
+            watchTime={watchTime}
+          ></SideCart>
         </div>
-     </div>
-     
+      </div>
+      <Blog></Blog>
+
     </div>
   );
 }

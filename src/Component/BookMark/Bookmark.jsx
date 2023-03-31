@@ -18,13 +18,13 @@ const Bookmark = (props) => {
                                 <img src={author} alt="author" />
                             </div>
                             <div className='author_name'>
-                                <p className='name'> <small> {name} min</small> </p>
+                                <p className='name'> {name} </p>
                                 <p className='date_area'>Mar 14(4 Days ago)</p>
                             </div>
                         </div>
                         <div>
-                            <small>{time}</small>
-                            <i className='ms-4' > <FontAwesomeIcon onClick={()=> handleWathTime(time)} icon={faBookBookmark} /></i>
+                            <small>{time} <span>min</span></small>
+                            <i className='ms-4' > <FontAwesomeIcon  icon={faBookBookmark} /></i>
                         </div>
                     </div>
                     <div className='bottom_container'>
@@ -35,7 +35,7 @@ const Bookmark = (props) => {
                         <p className='programming'>#programming</p>
                     </div>
                     <div >
-                        <p className='make_read border-bottom'>Mark as read</p>
+                        <p className='make_read border-bottom' onClick={()=> handleWathTime(time)}>Mark as read</p>
                     </div>
                 </div>
             </div>
