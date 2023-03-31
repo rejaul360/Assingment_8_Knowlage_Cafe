@@ -38,7 +38,7 @@ const Bookmark = (props) => {
                             </div>
                         </div>
                         <div>
-                            <small>{time} <span>min</span></small>
+                            <small>{time} <span> min</span></small>
                             <i className='ms-4' onClick={() => handleBookmark ()}> <FontAwesomeIcon   icon={faBookBookmark} /></i>
                         </div>
                     </div>
