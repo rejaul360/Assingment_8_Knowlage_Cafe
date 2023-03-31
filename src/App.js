@@ -7,6 +7,9 @@ import { useState } from 'react';
 import Blog from './Component/Blog/Blog';
 
 function App() {
+  const [bookMarkItem, setBookmarkItem] = useState([]);
+  console.log(bookMarkItem);
+
   const [watchTime, setWatchTime] = useState("")
 
   const handleWathTime = (time) => {
@@ -21,6 +24,7 @@ function App() {
     }
   }
 
+
   return (
     <div className="App">
       <div>
@@ -29,11 +33,14 @@ function App() {
       <div className='main row'>
         <div className='col-md-8'>
           <Home
+          bookMarkItem= {bookMarkItem}
+          setBookmarkItem = {setBookmarkItem}
             handleWathTime={handleWathTime}
           ></Home>
         </div>
         <div className='col-md-4 '>
           <SideCart
+          bookMarkItem  = {bookMarkItem}
             watchTime={watchTime}
           ></SideCart>
         </div>

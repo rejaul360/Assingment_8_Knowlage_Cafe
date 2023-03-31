@@ -1,13 +1,28 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'
+import {  ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Bookmark = (props) => {
+
     const {img, title, name,author,time} = props.bookmark;
     const {handleWathTime} = props;
+    const {setBookmarkItem, bookMarkItem}= props;
+
+    const handleBookmark = () => {
+        const bookMarkItemTwo = bookMarkItem.find(bM => props.bookmark.id === bM.id)
+        if(bookMarkItemTwo){
+            toast.error("alredy bookmark")
+        }else{
+            setBookmarkItem([...bookMarkItem, props.bookmark])
+        }
+    }
+
     return (
         <div>
+             <ToastContainer />
 
             <div className=' main_container'>
                 <div className='side_one'>
@@ -24,7 +39,7 @@ const Bookmark = (props) => {
                         </div>
                         <div>
                             <small>{time} <span>min</span></small>
-                            <i className='ms-4' > <FontAwesomeIcon  icon={faBookBookmark} /></i>
+                            <i className='ms-4' onClick={() => handleBookmark ()}> <FontAwesomeIcon   icon={faBookBookmark} /></i>
                         </div>
                     </div>
                     <div className='bottom_container'>
