@@ -5,6 +5,9 @@ import Home from './Component/Home/Home';
 import SideCart from './Component/SideCart/SideCart';
 
 function App() {
+  const handleWathTime = () => {
+    console.log('okk brow namaj aa jao');
+  }
   return (
     <div className="App">
      <div>
@@ -12,7 +15,9 @@ function App() {
      </div>
      <div className='main row'>
         <div className='col-md-8'>
-          <Home></Home>
+          <Home 
+          handleWathTime= {handleWathTime}
+          ></Home>
         </div>
         <div className='col-md-4 '>
            <SideCart></SideCart>

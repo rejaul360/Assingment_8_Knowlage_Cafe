@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Home.css'
 import Bookmark from '../BookMark/Bookmark';
 
-
-
-
-const Home = () => {
+const Home = ({handleWathTime}) => {
 
     const [bookmarks, setBookmark] = useState([])
 
@@ -21,6 +18,7 @@ const Home = () => {
             bookmarks.map(bookmark => <Bookmark 
             key = {bookmark.id}
             bookmark = {bookmark}
+            handleWathTime = {handleWathTime}
             ></Bookmark>)
            }
         </div>

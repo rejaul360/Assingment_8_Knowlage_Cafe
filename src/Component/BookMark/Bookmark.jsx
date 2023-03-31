@@ -1,10 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'
-import imgOne from '../../images/picture four (1).png';
+
 
 const Bookmark = (props) => {
-    const {img, title, name,author} = props.bookmark
+    const {img, title, name,author,time, } = props.bookmark;
+    const {handleWathTime} = props.handleWathTime;
     return (
         <div>
 
@@ -22,8 +23,8 @@ const Bookmark = (props) => {
                             </div>
                         </div>
                         <div>
-                            <small>05 min read</small>
-                            <i className='ms-4'> <FontAwesomeIcon icon={faBookBookmark} /></i>
+                            <small>{time}</small>
+                            <i className='ms-4' > <FontAwesomeIcon onClick={handleWathTime} icon={faBookBookmark} /></i>
                         </div>
                     </div>
                     <div className='bottom_container'>
